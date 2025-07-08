@@ -12,7 +12,7 @@ app.use(cors({
     'http://localhost:8083',
     'https://green-ground-02bf76e00.2.azurestaticapps.net'
   ],
-  credentials: true
+  credentials: true, // if you use cookies/auth
 }));
 app.use(express.json());
 
