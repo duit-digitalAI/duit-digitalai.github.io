@@ -104,13 +104,13 @@ app.post('/api/otp/send', async (req, res) => {
     const smsRes = await fetch(smsApiUrl, { method: 'GET' });
     const smsData = await smsRes.json();
     console.log('SMS API response:', smsData);
-    if (smsData.submitResponses && smsData.submitResponses[0].state === 'SUBMIT_ACCEPTED') {
+    if (smsData.state === 'SUBMIT_ACCEPTED') {
       console.log('OTP SMS sent successfully.');
       return res.json({ success: true });
     }
     // If not accepted, treat as error
-    console.error('SMS send failed:', smsData.submitResponses ? smsData.submitResponses[0].description : 'Unknown error');
-    res.status(500).json({ success: false, error: smsData.submitResponses ? smsData.submitResponses[0].description : 'SMS send failed' });
+    console.error('SMS send failed:', smsData.description || 'Unknown error');
+    res.status(500).json({ success: false, error: smsData.description || 'SMS send failed' });
   } catch (err) {
     console.error('OTP send error:', err);
     res.status(500).json({ success: false, error: err.message });
