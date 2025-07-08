@@ -7,12 +7,16 @@ const sql = require('mssql');
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:8083',
+  'https://green-ground-02bf76e00.2.azurestaticapps.net'
+];
+console.log('CORS allowed origins:', allowedOrigins);
 app.use(cors({
-  origin: [
-    'http://localhost:8083',
-    'https://green-ground-02bf76e00.2.azurestaticapps.net'
-  ],
+  origin: allowedOrigins,
   credentials: true, // if you use cookies/auth
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.use(express.json());
 
@@ -152,6 +156,18 @@ app.post('/api/otp/verify', async (req, res) => {
     res.status(500).json({ success: false, error: err.message });
   }
 });
+
+// Debug endpoint to check CORS config
+app.get('/api/cors-debug', (req, res) => {
+  res.json({
+    allowedOrigins
+  });
+});
+
+app.options('*', cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
 const PORT = process.env.PORT || 3045;
 app.listen(PORT, () => {
