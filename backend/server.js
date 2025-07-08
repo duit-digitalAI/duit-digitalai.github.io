@@ -8,8 +8,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:8083', // or use '*' for all origins (not recommended for production)
-  credentials: true, // if you need cookies/auth
+  origin: [
+    'http://localhost:8083',
+    'https://green-ground-02bf76e00.2.azurestaticapps.net'
+  ],
+  credentials: true
 }));
 app.use(express.json());
 
