@@ -15,6 +15,7 @@ import Blog from "./pages/Blog";
 import Legal from "./pages/Legal";
 import AuthModal from "./components/AuthModal";
 import Contact from "./pages/Contact";
+import Partners from "./pages/Partners";
 
 // AuthModal context
 export const AuthModalContext = createContext();
@@ -120,6 +121,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/partners" element={<Partners />} />
           </Routes>
           <Footer />
           <AuthModal open={authOpen} onClose={closeAuthModal} />

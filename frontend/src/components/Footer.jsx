@@ -15,6 +15,7 @@ const Footer = () => (
         <a href="/careers" className="hover:text-yellow-500 transition-colors">Careers</a>
         <a href="/blog" className="hover:text-yellow-500 transition-colors">Blog</a>
         <a href="/legal" className="hover:text-yellow-500 transition-colors">Legal</a>
+        <a href="/partners" className="hover:text-yellow-500 transition-colors">Partners</a>
         <a href="/contact" className="hover:text-yellow-500 transition-colors">Contact</a>
       </div>
       <div className="flex gap-4 justify-center md:justify-end">
