@@ -6,7 +6,7 @@ const steps = [
     desc: "Enter your income, employment details, and loan requirements. Completely secure and private."
   },
   {
-    title: "Our AI Matches You",
+    title: "Nivi AI Scoring",
     desc: "Our smart algorithm analyzes your profile and matches you with the best lenders instantly."
   },
   {

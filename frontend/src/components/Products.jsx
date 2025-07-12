@@ -4,7 +4,7 @@ const products = [
   {
     icon: "/images/LAP.svg",
     title: "Loan Against Property",
-    desc: "Need a large loan at affordable interest rates? Use your property to get the best loan against property offers from leading lenders.",
+    desc: "Loans starting from 1 lac from reputed lenders.",
     cta: "Get Offers"
   },
   {
@@ -27,12 +27,14 @@ const Products = ({ openAuthModal }) => (
           <img src={p.icon} alt={p.title} className="h-12 mb-4" />
           <h3 className="text-lg md:text-xl font-semibold mb-2">{p.title}</h3>
           <p className="text-gray-600 mb-6 text-sm md:text-base">{p.desc}</p>
-          <button
+          <a
+            href="https://duitai.in"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded transition w-full sm:w-auto justify-center"
-            onClick={openAuthModal}
           >
             {p.cta} <span>→</span>
-          </button>
+          </a>
         </div>
       ))}
     </div>

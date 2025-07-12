@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { submitContactRequest } from '../api';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -9,15 +10,24 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     if (!form.name || !form.email || !form.message) {
       setError("Please fill in all required fields.");
       return;
     }
-    // Optionally, send to backend here
-    setSubmitted(true);
+    try {
+      const response = await submitContactRequest(form);
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    }
   };
 
   return (

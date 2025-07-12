@@ -31,4 +31,13 @@ export async function verifyOtp({ mobile, otp }) {
 export async function resendOtp({ mobile }) {
   // Optionally, you can use the same endpoint as sendOtp or a dedicated one if available
   return sendOtp({ mobile });
+}
+
+export async function submitContactRequest({ name, email, phone, message }) {
+  return fetch(`${API_BASE}/api/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, phone, message }),
+    credentials: "include"
+  });
 } 

@@ -23,28 +23,16 @@ const Hero = ({ openAuthModal }) => (
           100% Digital
         </span>
       </div>
-      <button
+      <a
+        href="https://duitai.in"
+        target="_blank"
+        rel="noopener noreferrer"
         className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded transition inline-block w-full sm:w-auto"
-        onClick={openAuthModal}
       >
-        Find My Best Rate
-      </button>
-      <div className="flex flex-wrap gap-6 mt-8 justify-center md:justify-start">
-        <a href="https://www.adityabirlacapital.com/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-          <img src="/images/aditya-birla-logo.png" alt="Aditya Birla" className="h-8" />
-        </a>
-        <a href="https://www.bajajfinserv.in/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-          <img src="/images/bajaj-logo.png" alt="Bajaj Finserv" className="h-8" />
-        </a>
-        <a href="https://poonawallafincorp.com/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-          <img src="/images/poonawalla-logo.png" alt="Poonawalla" className="h-8" />
-        </a>
-        <a href="https://www.infina.co.in/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-          <img src="/images/infinia-logo.png" alt="Infinia" className="h-8" />
-        </a>
-      </div>
+        Chat with Nivi
+      </a>
     </div>
-    <div className="mt-10 md:mt-0 w-full md:w-2/5 flex justify-center md:justify-end">
+    <div className="mt-10 md:mt-0 w-full md:w-2/5 flex justify-center md:justify-end relative">
       <img src="/images/hero-illustration.png" alt="Hero Illustration" className="w-full max-w-xs md:max-w-md" />
     </div>
   </section>
