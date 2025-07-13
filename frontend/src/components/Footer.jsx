@@ -5,7 +5,7 @@ const Footer = () => (
     {/* Main footer content */}
     <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 md:gap-0">
       <div className="flex items-center gap-2 mb-2 md:mb-0">
-        <a href="https://www.duitai.in" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.duitai.in">
           <img src="/images/duit-logo.svg" alt="Duit Digital Logo" className="h-[6rem] w-auto" />
         </a>
         
