@@ -32,7 +32,7 @@ const Navbar = ({ openAuthModal }) => {
           <li><a href="#faqs" className="hover:text-yellow-500">FAQs</a></li>
         </ul>
         <a
-          href="https://duitai.in"
+          href="https://nivi.duitai.in"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 border-2 border-yellow-300"
@@ -50,7 +50,7 @@ const Navbar = ({ openAuthModal }) => {
             <li><a href="#faqs" className="hover:text-yellow-500" onClick={() => setMenuOpen(false)}>FAQs</a></li>
           </ul>
           <a
-            href="https://duitai.in"
+            href="https://nivi.duitai.in"
             target="_blank"
             rel="noopener noreferrer"
             className="block mt-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 border-2 border-yellow-300 text-center w-full"

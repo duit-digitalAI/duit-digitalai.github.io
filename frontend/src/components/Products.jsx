@@ -28,7 +28,7 @@ const Products = ({ openAuthModal }) => (
           <h3 className="text-lg md:text-xl font-semibold mb-2">{p.title}</h3>
           <p className="text-gray-600 mb-6 text-sm md:text-base">{p.desc}</p>
           <a
-            href="https://duitai.in"
+            href="https://nivi.duitai.in"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded transition w-full sm:w-auto justify-center"

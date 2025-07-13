@@ -24,7 +24,7 @@ const Hero = ({ openAuthModal }) => (
         </span>
       </div>
       <a
-        href="https://duitai.in"
+        href="https://nivi.duitai.in"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded transition inline-block w-full sm:w-auto"

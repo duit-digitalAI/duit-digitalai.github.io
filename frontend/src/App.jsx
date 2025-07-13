@@ -131,7 +131,7 @@ function App() {
             <div className="relative group">
               {/* Main Avatar */}
               <a 
-                href="https://duitai.in" 
+                href="https://nivi.duitai.in" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block pointer-events-auto"
