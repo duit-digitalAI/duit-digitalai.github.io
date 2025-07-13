@@ -112,10 +112,6 @@ const Contact = () => {
               <span className="font-semibold block text-gray-800 mb-1">Registered Address</span>
               <div>Duit Digital Private Limited - E-303/Interface Height,<br />New Link Road, Malad West Dely, Mumbai 400064</div>
             </div>
-            <div>
-              <span className="font-semibold block text-gray-800 mb-1">Branch Address</span>
-              <div>Springhouse Co-working - 6th Floor, Unitech Trade Centre,<br />Sushant Lok Phase 1 Sector 43, Gurugram 122002</div>
-            </div>
           </div>
         </div>
       </section>

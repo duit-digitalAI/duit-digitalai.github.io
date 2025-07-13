@@ -8,7 +8,7 @@ const Navbar = ({ openAuthModal }) => {
       <div className="flex justify-between items-center py-4 px-4 md:px-8">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <a href="https://www.duit.digital" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.duitai.in" target="_blank" rel="noopener noreferrer">
             <img src="/images/duit-logo.svg" alt="Duit Digital Logo" className="h-[6rem] w-auto" />
           </a>
         </div>
