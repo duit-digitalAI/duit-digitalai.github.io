@@ -14,6 +14,10 @@ const allowedOrigins = [
   'https://www.duitai.in' // (optional, if you use www)
 ];
 console.log('CORS allowed origins:', allowedOrigins);
+app.use((req, res, next) => {
+  console.log('Incoming request Origin:', req.headers.origin);
+  next();
+});
 app.use(cors({
   origin: allowedOrigins,
   credentials: true, // if you use cookies/auth
