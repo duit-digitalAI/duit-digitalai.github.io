@@ -19,7 +19,14 @@ app.use((req, res, next) => {
   next();
 });
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser requests
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true, // if you use cookies/auth
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -188,11 +195,6 @@ app.get('/api/cors-debug', (req, res) => {
     allowedOrigins
   });
 });
-
-app.options('*', cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
 
 const PORT = process.env.PORT || 3045;
 app.listen(PORT, () => {
