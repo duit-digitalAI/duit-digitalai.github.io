@@ -9,7 +9,9 @@ const app = express();
 // Middleware
 const allowedOrigins = [
   'http://localhost:8083',
-  'https://green-ground-02bf76e00.2.azurestaticapps.net'
+  'https://green-ground-02bf76e00.2.azurestaticapps.net',
+  'https://duitai.in', // <-- Add this line
+  'https://www.duitai.in' // (optional, if you use www)
 ];
 console.log('CORS allowed origins:', allowedOrigins);
 app.use(cors({
@@ -154,6 +156,25 @@ app.post('/api/otp/verify', async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// POST /api/contact - Save Contact Request
+app.post('/api/contact', async (req, res) => {
+  const { name, email, phone, message } = req.body;
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: 'Missing required fields' });
+  }
+  try {
+    await sql.connect(dbConfig);
+    await sql.query`
+      INSERT INTO ContactMessages (name, email, phone, message)
+      VALUES (${name}, ${email}, ${phone || null}, ${message})
+    `;
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Contact form error:', err);
+    res.status(500).json({ success: false, error: 'Server error' });
   }
 });
 
