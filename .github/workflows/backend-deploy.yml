@@ -25,6 +25,8 @@ jobs:
         uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
+          username: ${{ fromJson(secrets.AZURE_CREDENTIALS).clientId }}
+          password: ${{ fromJson(secrets.AZURE_CREDENTIALS).clientSecret }}
 
       - name: Build and push Docker image
         run: |
