@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const sql = require('mssql');
+const packageJson = require('./package.json');
 
 const app = express();
 
@@ -199,4 +200,5 @@ app.get('/api/cors-debug', (req, res) => {
 const PORT = process.env.PORT || 3045;
 app.listen(PORT, () => {
   console.log(`🚀 Server listening at http://localhost:${PORT}`);
+  console.log(`App version: ${packageJson.version}`);
 });

@@ -28,8 +28,20 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          # Install jq for version extraction
+          sudo apt-get update && sudo apt-get install -y jq
+          # Tag with commit SHA
           docker build -t ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:${{ github.sha }} ./backend
           docker push ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:${{ github.sha }}
+
+          # Tag with 'latest'
+          docker tag ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:${{ github.sha }} ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:latest
+          docker push ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:latest
+
+          # Tag with package.json version (optional, requires jq)
+          VERSION=$(jq -r .version ./backend/package.json)
+          docker tag ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:${{ github.sha }} ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:$VERSION
+          docker push ${{ secrets.AZURE_CONTAINER_REGISTRY }}/backend:$VERSION
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
