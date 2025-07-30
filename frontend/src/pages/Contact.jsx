@@ -106,11 +106,11 @@ const Contact = () => {
             </div>
             <div>
               <span className="font-semibold block text-gray-800 mb-1">Corporate Address</span>
-              <div>WeWork Oberoi Commerz II,<br />No 2, 1 Mohan Gokhale Rd, 1st & 20th Floor, Aarey Milk Colony,<br />Mumbai 400063</div>
+              <div>WeWork Oberoi Commerz II,<br />International Business Park, Oberoi Garden City, Off Western Express Highway, Goregaon (East),<br />Mumbai, MH 400063, India</div>
             </div>
             <div>
               <span className="font-semibold block text-gray-800 mb-1">Registered Address</span>
-              <div>Duit Digital Private Limited - E-303/Interface Height,<br />New Link Road, Malad West Dely, Mumbai 400064</div>
+              <div>Duit Digital Private Limited - Plot no-cts no-1406A/10,<br />Flt no-303/third floor/E wing/BL, Interface Heights, Off New Link Road, Malad West,<br /> Mumbai, Mumbai Suburban, Maharashtra, 400064</div>
             </div>
           </div>
         </div>
