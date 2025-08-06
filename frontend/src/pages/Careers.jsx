@@ -175,9 +175,12 @@ const Careers = () => {
           <p className="text-lg text-gray-600 mb-8">
             We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.
           </p>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded transition">
+          <a
+            href="mailto:info@duit.digital?subject=Job"
+            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded transition inline-block"
+          >
             Send Resume
-          </button>
+          </a>
         </div>
       </section>
     </div>
