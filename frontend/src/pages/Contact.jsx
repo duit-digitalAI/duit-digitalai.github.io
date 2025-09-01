@@ -1,34 +1,24 @@
-import React, { useState } from "react";
-import { submitContactRequest } from '../api';
+import React, { useEffect, useRef } from "react";
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const [error, setError] = useState("");
+  const bitrixMountRef = useRef(null);
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    // Prevent double-inject in React 18 StrictMode (dev)
+    if (document.querySelector('script[data-b24-form="inline/1/agxc12"]')) return;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    if (!form.name || !form.email || !form.message) {
-      setError("Please fill in all required fields.");
-      return;
-    }
-    try {
-      const response = await submitContactRequest(form);
-      const data = await response.json();
-      if (data.success) {
-        setSubmitted(true);
-      } else {
-        setError(data.error || "Something went wrong.");
-      }
-    } catch (err) {
-      setError("Server error. Please try again later.");
-    }
-  };
+    // Ensure our mount exists
+    if (!bitrixMountRef.current) return;
+
+    // Create the exact Bitrix embed script tag with required attributes AND inline IIFE
+    const script = document.createElement('script');
+    script.setAttribute('data-b24-form', 'inline/1/agxc12');
+    script.setAttribute('data-skip-moving', 'true');
+    script.innerHTML = "(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn.bitrix24.in/b34611287/crm/form/loader_1.js');";
+
+    // Inject the script exactly where we want the form to appear
+    bitrixMountRef.current.appendChild(script);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -38,66 +28,12 @@ const Contact = () => {
           <p className="text-xl text-gray-600 mb-8">We'd love to hear from you! Reach out with your questions, feedback, or partnership inquiries.</p>
         </div>
       </section>
+
       <section className="px-4 md:px-8 py-16">
         <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-          {submitted ? (
-            <div className="text-center py-12">
-              <h2 className="text-2xl font-bold mb-4 text-green-700">Thank You!</h2>
-              <p className="text-gray-700 mb-2">Your message has been received. Our team will get in touch with you soon.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full border rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full border rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Phone</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="w-full border rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                    maxLength={15}
-                  />
-                </div>
-                <div className="md:col-span-1">
-                  <label className="block text-gray-700 font-medium mb-2">Message *</label>
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    className="w-full border rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 min-h-[100px]"
-                    required
-                  />
-                </div>
-              </div>
-              {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
-              <button type="submit" className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded transition">Send Message</button>
-            </form>
-          )}
+          {/* Bitrix24 CRM form renders inline here */}
+          <div ref={bitrixMountRef}></div>
+
           <div className="mt-12 border-t pt-8 text-gray-600 text-sm text-left space-y-4">
             <div>
               <span className="font-semibold block text-gray-800 mb-1">Contact Information</span>
@@ -119,4 +55,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;
