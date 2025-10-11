@@ -55,7 +55,6 @@ const LogoScrollBar = () => (
       <div className="flex-shrink-0">
         <img src="/images/ltfinance.png" alt="L&T Finance" className="h-8" />
       </div>
-      </div>
       <div className="flex-shrink-0">
         <img src="/images/dmi-logo.png" alt="DMI" className="h-8" />
       </div>
@@ -92,7 +91,6 @@ const LogoScrollBar = () => (
       </div>
       <div className="flex-shrink-0">
         <img src="/images/ltfinance.png" alt="L&T Finance" className="h-8" />
-      </div>
       </div>
       <div className="flex-shrink-0">
         <img src="/images/dmi-logo.png" alt="DMI" className="h-8" />
