@@ -99,6 +99,10 @@ const LogoScrollBar = () => (
         <img src="/images/zype-logo.svg" alt="Zype" className="h-8" />
       </div>
     </div>
+<div className="flex-shrink-0">
+  <img src="/images/Grandient Ram fincorp logo.png" alt="Grandient Ram Fincorp" className="h-8" />
+</div>
+
   </section>
 );
 
