@@ -64,6 +64,10 @@ const LogoScrollBar = () => (
       <div className="flex-shrink-0">
         <img src="/images/zype-logo.svg" alt="Zype" className="h-8" />
       </div>
+      <div className="flex-shrink-0">
+        <img src="/images/Payme Logo.png" alt="Payme" className="h-8" />
+      </div>
+
       {/* Duplicate set for seamless loop */}
       <div className="flex-shrink-0">
         <img src="/images/aditya-birla-logo.png" alt="Aditya Birla" className="h-8" />
@@ -103,6 +107,9 @@ const LogoScrollBar = () => (
       </div>
       <div className="flex-shrink-0">
         <img src="/images/zype-logo.svg" alt="Zype" className="h-8" />
+      </div>
+      <div className="flex-shrink-0">
+        <img src="/images/Payme Logo.png" alt="Payme" className="h-8" />
       </div>
     </div>
   </section>
@@ -148,9 +155,9 @@ function App() {
           <div className="fixed right-6 bottom-6 z-50 md:right-8 md:bottom-8">
             <div className="relative group">
               {/* Main Avatar */}
-              <a 
-                href="https://nivi.duitai.in" 
-                target="_blank" 
+              <a
+                href="https://nivi.duitai.in"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="block pointer-events-auto"
                 style={{ zIndex: 2 }}
@@ -163,22 +170,8 @@ function App() {
               </a>
 
               {/* Chat Bubble */}
-              <div className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ zIndex: 3 }}>
-                <div className="bg-yellow-400 text-black text-sm font-semibold px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
-                  Hi, I'm Nivi!
-                </div>
-                {/* Arrow pointing down */}
-                <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-yellow-400"></div>
-              </div>
-
-              {/* Pulse animation ring */}
-              <div className="absolute inset-0 rounded-full bg-yellow-400 animate-ping opacity-20 pointer-events-none" style={{ zIndex: 1 }}></div>
-            </div>
-          </div>
-        </div>
-      </Router>
-    </AuthModalContext.Provider>
-  );
-}
-
-export default App;
+              <div
+                className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ zIndex: 3 }}
+              >
+                <div className="bg-yellow-400 text-black text-sm font-semibold px-4 py-2 rounded
